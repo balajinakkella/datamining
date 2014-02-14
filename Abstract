@@ -1,0 +1,17 @@
+datamining Abstract.
+
+Text classification is currently popular in Knowledge Discovery in Databases (KDD) and Machine Learning (ML). 
+
+KDD based text classification research focuses on statistical techniques, while the ML based approach focuses on 
+
+artificial-intelligence techniques. Text mining necessitates the pre-processing of the documentbase. Two broad approaches 
+
+can be identified: (1) document representation and (2) feature selection. In this paper, we propose three text 
+
+pre-processing approaches: (a) pruned (two-frequency-threshold based) bag of single-words; (b) emerging pattern based bag 
+
+of single-words; and (c) bag of frequent-wordsets. The core strategy to develop these three approaches is to avoid 
+
+computational overhead of (2). Experiments indicate acceptable text classification accuracy when applying these 
+
+approaches.
