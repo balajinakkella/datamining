@@ -1,0 +1,51 @@
+#finalised approach for bag of words method
+from collections import Counter
+import string
+#----->
+#counter function implementation…
+fo=open("C:\Users\student\Desktop\datamining-code\input.txt","r")
+data=fo.read(100);
+fo.close()
+finalise_bag=data.split()
+bag_collections=finalise_bag
+print "Initial Tokens:",Counter(bag_collections)
+#----->
+#stemming into root words
+finalise_bag1=[]
+print finalise_bag1
+for a in finalise_bag:
+    b = int(len(a))
+    c = (b - 3) 
+    d = (b - 2)
+    e = (b - 1)
+    if a.endswith('ing'):
+       if c <= 2:
+          #print(a)
+          finalise_bag1.append(a)
+          print finalise_bag1
+       else:
+          #print(a[0:c])
+          finalise_bag1.append(a[0:c])
+          print finalise_bag1
+    if a.endswith('ed'):
+       if d <= 2:
+          #print(a)
+          finalise_bag1.append(a)
+          print finalise_bag1
+       else:
+          #print(a[0:d])
+          finalise_bag1.append(a[0:d])
+          print finalise_bag1
+    if a.endswith('s'):
+       if e <= 2:
+          #print(a)
+          finalise_bag1.append(a)
+          print finalise_bag1
+       else:
+          #print(a[0:e])
+          finalise_bag1.append(a[0:e])
+          print finalise_bag1
+    else:
+        finalise_bag1.append(a)
+        print finalise_bag1
+print "After Stemming:",Counter(finalise_bag1)
