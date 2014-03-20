@@ -5,20 +5,46 @@ import string
 
 
 #----->
-
-
 #counter function implementation…
 
-fin=raw_input("INPUT FILE PATH:")
-fout=raw_input("OUTPUT FILE PATH:")
+fin=raw_input("INPUT:")
+fout=raw_input("OUTPUT:")
 fo=open(fin,"r")
 data=fo.read(100);
 fo.close()
 
 
-finalise_bag=data.split()
-bag_collections=finalise_bag
-print "Initial Tokens:",Counter(bag_collections)
+#---->
+temp=data
+print "Test Tokens:",Counter(data.split())
+
+#--->
+#reading stopword filter document
+def read_words():
+    filter_file=raw_input("FILTER:")
+    open_file = open(filter_file, 'r')
+    words_list =[]
+    contents = open_file.readlines()
+    for i in range(len(contents)):
+         words_list.append(contents[i].strip('\n'))
+    return words_list    
+    open_file.close()  
+
+
+#--->
+#function for stopword filter
+def diff(a, b):
+    return [aa for aa in a if aa not in b]
+
+
+#----->
+#stopword filter
+common_words = read_words()
+bag_collections=data.split()
+finalise_bag=[]
+finalise_bag = diff(bag_collections,common_words)
+print "Initial Tokens:",Counter(finalise_bag)
+
 
 #----->
 #stemming into root words
@@ -78,5 +104,3 @@ with open(fout, "w") as text_file:
         str3=str1+str2
         text_file.write(str3)
     text_file.close()
-
-
