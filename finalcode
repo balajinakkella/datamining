@@ -1,18 +1,29 @@
 #finalised approach for bag of words method
 from collections import Counter
+#from Tkinetr import *
 import string
+
+
 #----->
+
+
 #counter function implementation…
-fo=open("C:\Users\student\Desktop\datamining-code\input.txt","r")
+
+fin=raw_input("INPUT FILE PATH:")
+fout=raw_input("OUTPUT FILE PATH:")
+fo=open(fin,"r")
 data=fo.read(100);
 fo.close()
+
+
 finalise_bag=data.split()
 bag_collections=finalise_bag
 print "Initial Tokens:",Counter(bag_collections)
+
 #----->
 #stemming into root words
 finalise_bag1=[]
-print finalise_bag1
+#print finalise_bag1
 for a in finalise_bag:
     b = int(len(a))
     c = (b - 3) 
@@ -22,30 +33,50 @@ for a in finalise_bag:
        if c <= 2:
           #print(a)
           finalise_bag1.append(a)
-          print finalise_bag1
+          #print finalise_bag1
        else:
           #print(a[0:c])
           finalise_bag1.append(a[0:c])
-          print finalise_bag1
+          #print finalise_bag1
     if a.endswith('ed'):
        if d <= 2:
           #print(a)
           finalise_bag1.append(a)
-          print finalise_bag1
+          #print finalise_bag1
        else:
           #print(a[0:d])
           finalise_bag1.append(a[0:d])
-          print finalise_bag1
+          #print finalise_bag1
     if a.endswith('s'):
        if e <= 2:
           #print(a)
           finalise_bag1.append(a)
-          print finalise_bag1
+          #print finalise_bag1
        else:
           #print(a[0:e])
           finalise_bag1.append(a[0:e])
-          print finalise_bag1
+          #print finalise_bag1
     else:
         finalise_bag1.append(a)
-        print finalise_bag1
-print "After Stemming:",Counter(finalise_bag1)
+        #print finalise_bag1
+finalise_bag2=Counter(finalise_bag1)
+print "After Stemming:",finalise_bag2
+
+#writing to output.txt file
+#f = open(fout,'w')
+#f.write('hi there\n')
+#f.close
+
+
+message="frequency of words in the given document is as follows\n"
+
+with open(fout, "w") as text_file:
+    text_file.write(message)
+    for i in finalise_bag2:
+        str1=i+" "
+        str2=str(finalise_bag2[i])+"\n"
+        str3=str1+str2
+        text_file.write(str3)
+    text_file.close()
+
+
